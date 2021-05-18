@@ -1,0 +1,35 @@
+{% extends 'admin/base.html' %} {% block content %}
+<h4 class="my-2">Update Experience</h4>
+<form action="/updateexp/{{updateexp.id}}" method="POST">
+  <input
+    type="text"
+    class="form-control my-2"
+    name="job_title"
+    placeholder="Job title"
+    value="{{updateexp.job_title}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="company"
+    placeholder="Company name"
+    value="{{updateexp.company}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="job_date"
+    placeholder="Job date"
+    value="{{updateexp.job_date}}"
+  />
+   <input
+    type="text"
+    class="form-control my-2"
+    name="job_content"
+    placeholder="Job content"
+    value="{{updateexp.job_content}}"
+  />
+  <input type="submit" class="btn btn-primary" value="Update experience" />
+</form>
+
+{% endblock %}

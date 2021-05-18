@@ -1,0 +1,50 @@
+{% extends 'admin/base.html' %} {% block content %}
+<h4 class="my-2">Update Skill</h4>
+<form action="/updateskill/{{updateskill.id}}" method="POST">
+  <input
+    type="text"
+    class="form-control my-2"
+    name="skill_name"
+    placeholder="Skill name"
+    value="{{updateskill.skill_name}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="skill_rate1"
+    placeholder="Skill rate 1"
+    value="{{updateskill.skill_rate1}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="skill_rate2"
+    placeholder="Skill rate 2"
+    value="{{updateskill.skill_rate2}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="skill_rate3"
+    placeholder="Skill rate 3"
+    value="{{updateskill.skill_rate3}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="skill_rate4"
+    placeholder="Skill rate 4"
+    value="{{updateskill.skill_rate4}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="skill_rate5"
+    placeholder="Skill rate 5"
+    value="{{updateskill.skill_rate5}}"
+  />
+
+  <input type="submit" class="btn btn-primary" value="Update contact" />
+</form>
+
+{% endblock %}

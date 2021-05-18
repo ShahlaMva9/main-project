@@ -1,0 +1,19 @@
+{% extends 'admin/base.html' %} {% block content %}
+<h4 class="my-2">Update Image</h4>
+<form
+  action="/updateimg/{{updateimg.id}}"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <input
+    type="file"
+    class="form-control my-2 p-1"
+    name="image"
+    placeholder="Image"
+    value="{{updateimg.image}}"
+  />
+
+  <input type="submit" class="btn btn-primary" value="Update image" />
+</form>
+
+{% endblock %}

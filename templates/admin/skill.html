@@ -1,0 +1,82 @@
+{% extends "admin/base.html" %} {% block content %}
+<h1 class="adminpage ml-4 mt-4">Add Skill</h1>
+<form action="/admin/skill" method="POST" class="w-50 ml-4 mt-4">
+  <input
+    type="text"
+    name="skill_name"
+    class="form-control my-2"
+    placeholder="Skill name"
+  />
+  <input
+    type="text"
+    name="skill_rate1"
+    class="form-control my-2"
+    placeholder="Skill rate 1"
+  />
+  <input
+    type="text"
+    name="skill_rate2"
+    class="form-control my-2"
+    placeholder="Skill rate 2"
+  />
+  <input
+    type="text"
+    name="skill_rate3"
+    class="form-control my-2"
+    placeholder="Skill rate3"
+  />
+  <input
+    type="text"
+    name="skill_rate4"
+    class="form-control my-2"
+    placeholder="Skill rate 4"
+  />
+  <input
+    type="text"
+    name="skill_rate5"
+    class="form-control my-2"
+    placeholder="Skill rate5"
+  />
+  <input type="submit" class="btn btn-warning my-2" value="Add" />
+</form>
+
+<h1 class="adminpage ml-4 mt-3">Skill page</h1>
+<table class="table table-hover mt-4 ml-4">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Skill name</th>
+      <th scope="col">Skill rate1</th>
+      <th scope="col">Skill rate2</th>
+      <th scope="col">Skill rate3</th>
+      <th scope="col">Skill rate4</th>
+      <th scope="col">Skill rate5</th>
+
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for skill in skills %}
+    <tr>
+      <th scope="row">{{skill.id}}</th>
+      <td>{{skill.skill_name}}</td>
+      <td>{{skill.skill_rate1}}</td>
+      <td>{{skill.skill_rate2}}</td>
+      <td>{{skill.skill_rate3}}</td>
+      <td>{{skill.skill_rate4}}</td>
+      <td>{{skill.skill_rate5}}</td>
+
+      <td>
+        <a href="/deleteskill/{{skill.id}}" class="btn btn-outline-danger"
+          >Delete</a
+        >
+        <a href="/updateskill/{{skill.id}}" class="btn btn-outline-secondary"
+          >Edit</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

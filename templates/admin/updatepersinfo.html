@@ -1,0 +1,28 @@
+{% extends 'admin/base.html' %} {% block content %}
+<h4 class="my-2">Update Personal Info</h4>
+<form action="/updatepersinfo/{{persoinfoupdate.id}}" method="POST">
+  <input
+    type="text"
+    class="form-control my-2"
+    name="title"
+    placeholder="Title"
+    value="{{persoinfoupdate.title}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="title_icon"
+    placeholder="Title icon "
+    value="{{persoinfoupdate.title_icon}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="title_content"
+    placeholder="Title content"
+    value="{{persoinfoupdate.title_content}}"
+  />
+  <input type="submit" class="btn btn-primary" value="Update contact" />
+</form>
+
+{% endblock %}

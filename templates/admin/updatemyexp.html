@@ -1,0 +1,28 @@
+{% extends 'admin/base.html' %} {% block content %}
+<h4 class="my-2">Update My experience</h4>
+<form action="/updatemyexp/{{updatemyexp.id}}" method="POST">
+  <input
+    type="text"
+    class="form-control my-2"
+    name="experience_year"
+    placeholder="Experience year"
+    value="{{updatemyexp.experience_year}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="doneproject"
+    placeholder="Done project"
+    value="{{updatemyexp.doneproject}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="happycustomers"
+    placeholder="Happy customers"
+    value="{{updatemyexp.happycustomers}}"
+  />
+  <input type="submit" class="btn btn-primary" value="Update my experience" />
+</form>
+
+{% endblock %}

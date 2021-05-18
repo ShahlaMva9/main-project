@@ -1,0 +1,327 @@
+body {
+  font-family: Lato, serif, Calibri, Arial;
+  font-size: 14px;
+  background-color: #efe9e9;
+  color: #656c6d;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#wrapper {
+  overflow-y: hidden;
+}
+.main-img {
+  width: calc(100% - 48px);
+  height: calc(100vh - 48px);
+  padding: 0;
+  margin: 0;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  border: 1px solid black;
+  width: 66vw;
+  height: calc(100vh - 48px);
+  margin: 0;
+  padding: 0;
+}
+
+.box-item {
+  width: 50%;
+  height: 50%;
+
+  position: absolute;
+  transition: 0.4s;
+}
+
+.box-item-inner {
+  background: white;
+
+  width: calc(100% - 20px);
+  height: calc(100% - 40px);
+  cursor: pointer;
+}
+.bg-none {
+  background-color: inherit;
+}
+
+.box-item:nth-child(1) {
+  top: 24px;
+  left: 0;
+}
+
+.box-item:nth-child(2) {
+  top: 24px;
+  left: 50%;
+}
+
+.box-item:nth-child(3) {
+  top: calc(50% + 12px);
+  left: 0;
+}
+
+.box-item:nth-child(4) {
+  top: calc(50% + 12px);
+  left: 50%;
+}
+
+.expand > .box-item {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.box-demo-expand > .demo {
+  left: 0;
+  top: 0px;
+  width: 100%;
+  z-index: 99;
+  height: 100%;
+  opacity: 1;
+  transform: scale(1);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+.box-demo-expand > .demo .title {
+  transform: translateY(90%);
+  font-size: 3em;
+}
+.box-demo-expand > .demo .content {
+  display: block;
+  margin-top: 10%;
+  background-color: white;
+}
+.box-about-expand > .about {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  opacity: 1;
+  transform: scale(1);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+.box-about-expand > .about .title {
+  transform: translateY(90%);
+  font-size: 2.8em;
+}
+.box-about-expand > .about .content {
+  display: block;
+  margin-top: 10%;
+  background-color: white;
+}
+.box-me-expand > .me {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  opacity: 1;
+}
+.box-me-expand > .me .title {
+  transform: translateY(90%);
+  font-size: 2.8em;
+}
+.box-me-expand > .me .content {
+  display: block;
+  margin-top: 10%;
+}
+.content {
+  display: none;
+}
+/* .mystyle{
+  display: block;
+  margin-top: 10%;
+} */
+.my-info {
+  font-size: 1.6em;
+  line-height: 2em;
+  text-align: center;
+}
+.my-name {
+  font-size: 1.2em;
+}
+.my-job {
+  color: #daa520;
+  font-weight: bold;
+}
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+
+  transform: translateY(250%);
+}
+.title .part2 {
+  color: #daa520;
+  margin-left: 10px;
+}
+/* divider */
+
+.divider1,
+.divider2 {
+  display: inline-block;
+  border-top: 1px solid #efe9e9;
+  width: 20%;
+  margin-top: 10px;
+}
+.fa-address-card,
+.fa-suitcase,
+.fa-envelope-open {
+  color: #daa520;
+  margin-top: 0px;
+  font-size: 1.5em;
+}
+.personal-info h5,
+.personal-info-text,
+.list-group {
+  font-size: 1.2em;
+}
+
+.list-group-item {
+  padding: 5px 0px;
+}
+.list-group-item b {
+  color: #222;
+}
+.persinfo-btn {
+  border: 1px solid #daa520;
+  padding: 10px 35px;
+  text-align: center;
+  outline: none;
+}
+.persinfo-btn:focus {
+  outline: none;
+}
+.persinfo-btn a {
+  font-size: 1.2em;
+  text-decoration: none;
+}
+.download-resume {
+  background-color: #daa520;
+}
+.download-resume a,
+.fa-file-word {
+  color: white;
+}
+.my-blog {
+  background-color: white;
+  transition: all 0.3s ease;
+}
+.my-blog:hover {
+  background-color: #daa520;
+}
+.my-blog:hover a,
+.my-blog:hover i {
+  color: white;
+}
+.my-blog a,
+.fa-edit {
+  color: #daa520;
+}
+.tab {
+  overflow: hidden;
+}
+.tab button {
+  background-color: white;
+  text-align: left;
+  border: 1px solid #efe9e9;
+  outline: none;
+  cursor: pointer;
+  padding: 20px 30px;
+  transition: all 0.3s ease;
+  font-size: 1.3em;
+  color: #656c6d;
+  font-weight: bold;
+}
+
+.tab button:hover {
+  background-color: #daa520;
+  color: white;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #daa520;
+  color: white;
+}
+.tabcontent {
+  display: none;
+  border: 1px solid #efe9e9;
+  width: 95%;
+  height: 100%;
+}
+.display-block {
+  display: block;
+}
+.tab-title {
+  text-align: center;
+  color: #daa520;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border: 1px solid #efe9e9;
+}
+.job-info {
+  font-size: 1.3em;
+}
+.job-date {
+  display: block;
+}
+.checked {
+  color: orange;
+}
+.skill i {
+  font-size: 1.1em;
+}
+
+.badges i {
+  color: #dddddd;
+  font-size: 3em;
+}
+.badges .year {
+  font-size: 3.5em;
+  color: #daa520;
+  font-weight: bold;
+}
+.badges h4 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.img-thumbnail {
+  border: none;
+}
+.img {
+  position: relative;
+}
+/* .img.snake {
+  position: relative;
+  overflow: hidden;
+} */
+/* get in touch */
+.contacts {
+  background: #f2f2f2;
+  color: #656c6d;
+  border: 1px solid #ddd;
+}
+.contact-name {
+  color: #daa520;
+  text-transform: uppercase;
+}
+.social-profiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-profiles i {
+  border: 1px solid red;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}

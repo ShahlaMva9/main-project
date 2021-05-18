@@ -1,0 +1,35 @@
+{% extends 'admin/base.html' %} {% block content %}
+<h4 class="my-2">Update Education</h4>
+<form action="/updateedu/{{updateedu.id}}" method="POST">
+  <input
+    type="text"
+    class="form-control my-2"
+    name="education_title"
+    placeholder="Education title"
+    value="{{updateedu.education_title}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="university_name"
+    placeholder="University name"
+    value="{{updateedu.university_name}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="education_date"
+    placeholder="Education date"
+    value="{{updateedu.education_date}}"
+  />
+  <input
+    type="text"
+    class="form-control my-2"
+    name="education_content"
+    placeholder="Education content"
+    value="{{updateedu.education_content}}"
+  />
+  <input type="submit" class="btn btn-primary" value="Update education" />
+</form>
+
+{% endblock %}

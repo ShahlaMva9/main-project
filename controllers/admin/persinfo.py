@@ -1,0 +1,50 @@
+from run import app
+from flask import render_template,redirect,request
+
+# from run import db 
+@app.route('/admin/persinfo',methods=["GET","POST"])
+def admin_persinfo_index():
+    from run import db
+    from models import Persoinfo   
+    persoinfos=Persoinfo.query.all()
+    if request.method=="POST":
+        persoinfo=Persoinfo(
+            title=request.form['title'],
+            title_icon=request.form['title_icon'],
+            title_content=request.form['title_content']
+        )
+        db.session.add(persoinfo)
+        db.session.commit()
+        return redirect("/admin/persinfo")
+    return render_template ("admin/persinfo.html" ,persoinfos=persoinfos)
+@app.route('/delete/<int:id>')
+def delete(id):
+    from run import db
+    from models import Persoinfo 
+    persoinfodelete=Persoinfo.query.get_or_404(id)
+
+    try:
+        db.session.delete(persoinfodelete)
+        db.session.commit()
+        return redirect("/admin/persinfo")
+    except:
+        return "sehv oldu"
+
+@app.route('/updatepersinfo/<int:id>', methods=["GET", "POST"])
+def update_persinfo(id):
+    from run import db
+    from models import Persoinfo 
+    persoinfoupdate=Persoinfo.query.get_or_404(id)
+    if request.method=="POST":
+        persoinfoupdate.title = request.form['title']
+        persoinfoupdate.title_icon = request.form['title_icon']
+        persoinfoupdate.title_content = request.form['title_content']
+        
+        try:
+            db.session.commit()
+            return redirect("/admin/persinfo")
+        except:
+            return "Sehvoldu"
+
+    return render_template ("/admin/updatepersinfo.html", persoinfoupdate=persoinfoupdate)
+ 
