@@ -9,9 +9,8 @@ def admin_persinfo_index():
     persoinfos=Persoinfo.query.all()
     if request.method=="POST":
         persoinfo=Persoinfo(
-            title=request.form['title'],
-            title_icon=request.form['title_icon'],
-            title_content=request.form['title_content']
+            pers_info_title=request.form['pers_info_title'],
+            pers_info_content=request.form['pers_info_content']
         )
         db.session.add(persoinfo)
         db.session.commit()
@@ -36,9 +35,9 @@ def update_persinfo(id):
     from models import Persoinfo 
     persoinfoupdate=Persoinfo.query.get_or_404(id)
     if request.method=="POST":
-        persoinfoupdate.title = request.form['title']
-        persoinfoupdate.title_icon = request.form['title_icon']
-        persoinfoupdate.title_content = request.form['title_content']
+        persoinfoupdate.pers_info_title = request.form['pers_info_title']
+        persoinfoupdate.pers_info_content = request.form['pers_info_content']
+      
         
         try:
             db.session.commit()

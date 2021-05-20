@@ -1,24 +1,24 @@
 {% extends 'admin/base.html' %} {% block content %}
 <h1 class="adminpage ml-4 mt-4">Add Personal Information</h1>
-<form action="/admin/persinfo" method="POST" class="w-50 ml-4 mt-4">
+<form
+  action="/admin/persinfo"
+  method="POST"
+  class="w-50 ml-4 mt-4"
+  enctype="multipart/form-data"
+>
   <input
     type="text"
-    name="title"
+    name="pers_info_title"
     class="form-control my-2"
-    placeholder="Title"
+    placeholder="Personal info title"
   />
   <input
     type="text"
-    name="title_icon"
+    name="pers_info_content"
     class="form-control my-2"
-    placeholder="Title icon"
+    placeholder="Personal Info content"
   />
-  <input
-    type="text"
-    name="title_content"
-    class="form-control my-2"
-    placeholder="Title content"
-  />
+
   <input type="submit" class="btn btn-warning my-2" value="Add" />
 </form>
 
@@ -27,9 +27,8 @@
   <thead>
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Title</th>
-      <th scope="col">Title icon</th>
-      <th scope="col">Title content</th>
+      <th scope="col">Personal info title</th>
+      <th scope="col">Personal Info content</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -37,9 +36,11 @@
     {% for persoinfo in persoinfos %}
     <tr>
       <th scope="row">{{persoinfo.id}}</th>
-      <td>{{persoinfo.title}}</td>
-      <td>{{persoinfo.title_icon}}</td>
-      <td>{{persoinfo.title_content}}</td>
+      <td>{{persoinfo.pers_info_title}}</td>
+      <td>{{persoinfo.pers_info_content}}</td>
+
+      <!-- <td>{{persoinfo.title_icon}}</td> -->
+
       <td>
         <a href="/delete/{{persoinfo.id}}" class="btn btn-outline-danger"
           >Delete</a
@@ -54,4 +55,5 @@
     {% endfor %}
   </tbody>
 </table>
+
 {% endblock %}

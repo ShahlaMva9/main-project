@@ -1,9 +1,12 @@
 from run import db
+from wtforms import SelectField
+from flask_wtf import FlaskForm
 class Persoinfo(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    title=db.Column(db.String(50))
-    title_icon=db.Column(db.String(50))
-    title_content=db.Column(db.String(50))
+    pers_info_title=db.Column(db.String(50))
+    pers_info_content=db.Column(db.String(50))
+    
+    
 
 class Experience(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -36,3 +39,10 @@ class Myexperience(db.Model):
 class Image(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     image=db.Column(db.String(100))
+class SocialIcon(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    contact_title=db.Column(db.String(50))
+    contact_info=db.Column(db.String(50))
+    contact_icon=db.Column(db.String(50))
+    socialIcon=db.Column(db.String(50))
+

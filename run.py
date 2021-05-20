@@ -2,6 +2,7 @@ from flask import Flask,send_file,render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+
 app=Flask(__name__)
 UPLOAD_FOLDER='static/uploads'
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data_.db"
@@ -18,6 +19,7 @@ from controllers.admin.education import *
 from controllers.admin.skill import *
 from controllers.admin.myexperience import *
 from controllers.admin.images import *
+from controllers.admin.socialprof import *
 
 
 

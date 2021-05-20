@@ -6,7 +6,7 @@
   enctype="multipart/form-data"
   class="w-50 ml-4 mt-4"
 >
-  <input type="file" name="image" class="form-control my-2 pt-1" />
+  <input type="file" name="image" class="form-control my-2 p-2" />
 
   <input type="submit" class="btn btn-warning my-2" value="Add" />
 </form>
@@ -30,7 +30,9 @@
         <a href="/deleteimg/{{image.id}}" class="btn btn-outline-danger"
           >Delete</a
         >
-        <a href="/updateimg/{{image.id}}" class="btn btn-outline-secondary">Edit</a>
+        <a href="/updateimg/{{image.id}}" class="btn btn-outline-secondary"
+          >Edit</a
+        >
       </td>
     </tr>
     {% endfor %}

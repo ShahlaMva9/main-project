@@ -4,7 +4,7 @@ from flask import render_template,redirect,request
 
 @app.route('/')
 def main_index():
-    from models import Persoinfo,Experience,Education,Skill,Myexperience,Image
+    from models import Persoinfo,Experience,Education,Skill,Myexperience,Image,SocialIcon
     print("***********************************************************")
     experiences=Experience.query.all()
     persoinfos=Persoinfo.query.all()
@@ -12,7 +12,8 @@ def main_index():
     skills=Skill.query.all()
     myexperiences=Myexperience.query.all()
     images=Image.query.all()
-    return render_template ("app/index.html",persoinfos=persoinfos,experiences=experiences,educations=educations,skills=skills,myexperiences=myexperiences,images=images)
+    social_icons=SocialIcon.query.all()
+    return render_template ("app/index.html",persoinfos=persoinfos,experiences=experiences,educations=educations,skills=skills,myexperiences=myexperiences,images=images,social_icons=social_icons)
 
 # download file
 

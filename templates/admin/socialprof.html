@@ -1,0 +1,71 @@
+{% extends "admin/base.html" %} {% block content %}
+
+<h1 class="adminpage ml-4 mt-4">Add Contacts</h1>
+
+<form action="/admin/socialprof" method="POST" class="w-50 ml-4 mt-4">
+  <input
+    type="text"
+    name="contact_title"
+    class="form-control my-2"
+    placeholder="Contact name"
+  />
+  <input
+    type="text"
+    name="contact_icon"
+    class="form-control my-2"
+    placeholder="Contact icon"
+  />
+  <input
+    type="text"
+    name="contact_info"
+    class="form-control my-2"
+    placeholder="Contact info"
+  />
+  <select name="socialIcon" id="" class="form-control my-2">
+    <option value="0">Choose socail profile</option>
+    <option value="facebook">Facebook</option>
+    <option value="instagram">Instagram</option>
+    <option value="twitter">Twitter</option>
+  </select>
+  <input type="submit" class="btn btn-warning my-2" value="Add" />
+</form>
+
+<h1 class="adminpage ml-4 mt-3">Social profile</h1>
+<table class="table table-hover mt-4 ml-4">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Contact name</th>
+      <th scope="col">Contact icon</th>
+      <th scope="col">Contact info</th>
+      <th scope="col">Social profile</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for social_icon in social_icons %}
+    <tr>
+      <th scope="row">{{social_icon.id}}</th>
+      <td>{{social_icon.contact_title}}</td>
+      <td>{{social_icon.contact_icon}}</td>
+      <td>{{social_icon.contact_info}}</td>
+      <td>{{social_icon.socialIcon}}</td>
+
+      <td>
+        <a
+          href="/deletesocialicon/{{social_icon.id}}"
+          class="btn btn-outline-danger"
+          >Delete</a
+        >
+        <a
+          href="/updatesocialicon/{{social_icon.id}}"
+          class="btn btn-outline-secondary"
+          >Edit</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
