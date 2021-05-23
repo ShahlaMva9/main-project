@@ -1,42 +1,44 @@
-{% extends "admin/base.html" %} {% block content %}
-<h1 class="adminpage ml-4 mt-4">Add Image</h1>
-<form
-  action="/admin/images"
-  method="POST"
-  enctype="multipart/form-data"
-  class="w-50 ml-4 mt-4"
->
-  <input type="file" name="image" class="form-control my-2 p-2" />
+{% extends "admin/dashboard.html" %} {% block content %}
+<div class="container">
+  <h1 class="adminpage ml-4 mt-4">Add Image</h1>
+  <form
+    action="/admin/images"
+    method="POST"
+    enctype="multipart/form-data"
+    class="w-50 ml-4 mt-4"
+  >
+    <input type="file" name="image" class="form-control my-2 p-2" />
 
-  <input type="submit" class="btn btn-warning my-2" value="Add" />
-</form>
-<h1 class="adminpage ml-4 mt-3">Images page</h1>
+    <input type="submit" class="btn btn-warning my-2" value="Add" />
+  </form>
+  <h1 class="adminpage ml-4 mt-3">Images page</h1>
 
-<table class="table table-hover mt-4 ml-4">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Image</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for image in images %}
-    <tr>
-      <th scope="row">{{image.id}}</th>
-      <th scope="row">{{image.image}}</th>
+  <table class="table table-hover mt-4 ml-4">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Image</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for image in images %}
+      <tr>
+        <th scope="row">{{image.id}}</th>
+        <th scope="row">{{image.image}}</th>
 
-      <td>
-        <a href="/deleteimg/{{image.id}}" class="btn btn-outline-danger"
-          >Delete</a
-        >
-        <a href="/updateimg/{{image.id}}" class="btn btn-outline-secondary"
-          >Edit</a
-        >
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+        <td>
+          <a href="/deleteimg/{{image.id}}" class="btn btn-outline-danger"
+            >Delete</a
+          >
+          <a href="/updateimg/{{image.id}}" class="btn btn-outline-secondary"
+            >Edit</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
 {% endblock %}

@@ -16,22 +16,21 @@ body {
 .adminpage {
   font-size: 1.4em;
   color: orange;
-  margin-left:10px ;
+  /* margin-left: 10px; */
 }
 .btn-warning {
   color: white;
-  margin-left:10px ;
+  /* margin-left: 10px; */
 }
 .form-control {
   font-size: 1.1em;
   padding: 10px;
-  margin-left:10px ;
+  /* margin-left:10px ; */
 }
 .table {
   font-size: 1.1em;
-  margin-left:10px ;
+  margin-left: 10px;
 }
 .table a {
   font-size: 1em;
 }
-

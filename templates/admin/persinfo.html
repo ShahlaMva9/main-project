@@ -1,59 +1,61 @@
-{% extends 'admin/base.html' %} {% block content %}
-<h1 class="adminpage ml-4 mt-4">Add Personal Information</h1>
-<form
-  action="/admin/persinfo"
-  method="POST"
-  class="w-50 ml-4 mt-4"
-  enctype="multipart/form-data"
->
-  <input
-    type="text"
-    name="pers_info_title"
-    class="form-control my-2"
-    placeholder="Personal info title"
-  />
-  <input
-    type="text"
-    name="pers_info_content"
-    class="form-control my-2"
-    placeholder="Personal Info content"
-  />
+{% extends 'admin/dashboard.html' %} {% block content %}
+<div class="container">
+  <h1 class="adminpage ml-4 mt-4">Add Personal Information</h1>
+  <form
+    action="/admin/persinfo"
+    method="POST"
+    class="w-50 ml-4 mt-4"
+    enctype="multipart/form-data"
+  >
+    <input
+      type="text"
+      name="pers_info_title"
+      class="form-control my-2"
+      placeholder="Personal info title"
+    />
+    <input
+      type="text"
+      name="pers_info_content"
+      class="form-control my-2"
+      placeholder="Personal Info content"
+    />
 
-  <input type="submit" class="btn btn-warning my-2" value="Add" />
-</form>
+    <input type="submit" class="btn btn-warning my-2" value="Add" />
+  </form>
 
-<h1 class="adminpage ml-4 mt-4">Personal information</h1>
-<table class="table table-hover mt-4 ml-4">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Personal info title</th>
-      <th scope="col">Personal Info content</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for persoinfo in persoinfos %}
-    <tr>
-      <th scope="row">{{persoinfo.id}}</th>
-      <td>{{persoinfo.pers_info_title}}</td>
-      <td>{{persoinfo.pers_info_content}}</td>
+  <h1 class="adminpage ml-4 mt-4">Personal information</h1>
+  <table class="table table-hover mt-4 ml-4">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Personal info title</th>
+        <th scope="col">Personal Info content</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for persoinfo in persoinfos %}
+      <tr>
+        <th scope="row">{{persoinfo.id}}</th>
+        <td>{{persoinfo.pers_info_title}}</td>
+        <td>{{persoinfo.pers_info_content}}</td>
 
-      <!-- <td>{{persoinfo.title_icon}}</td> -->
+        <!-- <td>{{persoinfo.title_icon}}</td> -->
 
-      <td>
-        <a href="/delete/{{persoinfo.id}}" class="btn btn-outline-danger"
-          >Delete</a
-        >
-        <a
-          href="/updatepersinfo/{{persoinfo.id}}"
-          class="btn btn-outline-secondary"
-          >Edit</a
-        >
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+        <td>
+          <a href="/delete/{{persoinfo.id}}" class="btn btn-outline-danger"
+            >Delete</a
+          >
+          <a
+            href="/updatepersinfo/{{persoinfo.id}}"
+            class="btn btn-outline-secondary"
+            >Edit</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
 {% endblock %}

@@ -1,22 +1,23 @@
-{% extends 'admin/base.html' %} {% block content %}
-<h4 class="my-2">Update Personal Info</h4>
-<form action="/updatepersinfo/{{persoinfoupdate.id}}" method="POST">
-  <input
-    type="text"
-    class="form-control my-2"
-    name="pers_info_title"
-    placeholder="Title"
-    value="{{persoinfoupdate.pers_info_title}}"
-  />
-  <input
-    type="text"
-    class="form-control my-2"
-    name="pers_info_content"
-    placeholder="Title icon "
-    value="{{persoinfoupdate.pers_info_content}}"
-  />
+{% extends 'admin/dashboard.html' %} {% block content %}
+<div class="container">
+  <h4 class="my-2">Update Personal Info</h4>
+  <form action="/updatepersinfo/{{persoinfoupdate.id}}" method="POST">
+    <input
+      type="text"
+      class="form-control my-2"
+      name="pers_info_title"
+      placeholder="Title"
+      value="{{persoinfoupdate.pers_info_title}}"
+    />
+    <input
+      type="text"
+      class="form-control my-2"
+      name="pers_info_content"
+      placeholder="Title icon "
+      value="{{persoinfoupdate.pers_info_content}}"
+    />
 
-  <input type="submit" class="btn btn-primary" value="Update contact" />
-</form>
-
+    <input type="submit" class="btn btn-primary" value="Update contact" />
+  </form>
+</div>
 {% endblock %}

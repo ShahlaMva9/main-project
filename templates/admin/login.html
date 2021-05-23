@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %} {% import 'bootstrap/wtf.html' as wtf %} {%
+block content %}
+<div class="container">
+  <h1 class="adminpage ml-4 mt-4">Login</h1>
+  <form class="w-50 ml-4 mt-4" method="POST" action="/admin/login">
+    {{form.hidden_tag()}} {{wtf.form_field(form.username)}}
+    {{wtf.form_field(form.password)}} {{wtf.form_field(form.remember)}}
+
+    <!-- <input type="email" class="form-control my-2" placeholder="Email" /> -->
+    <!-- <input type="password" class="form-control my-2" placeholder="Password" /> -->
+    <input type="submit" class="btn btn-warning my-2" value="Login" />
+  </form>
+</div>
+
+{% endblock %}

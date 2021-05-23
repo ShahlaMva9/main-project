@@ -1,7 +1,9 @@
 from run import app 
 from flask import render_template,redirect,request
+from flask_login import login_required
 
 @app.route('/admin/experience',methods=['GET','POST'])
+@login_required
 def admin_experience_index():
     from run import db
     from models import Experience 
@@ -17,6 +19,7 @@ def admin_experience_index():
          db.session.commit()
          return redirect('/admin/experience')
     return render_template('admin/experience.html',experiences=experiences)
+
 @app.route('/deleteexp/<int:id>')
 def deleteexp(id):
     from run import db
@@ -29,6 +32,7 @@ def deleteexp(id):
         return redirect("/admin/experience")
     except:
         return "sehv oldu"
+
 @app.route('/updateexp/<int:id>', methods=["GET", "POST"])
 def update_exp(id):
     from run import db

@@ -1,59 +1,68 @@
-{% extends "admin/base.html" %} {% block content %}
-<h1 class="adminpage ml-4 mt-4">Add Experience</h1>
-<form action="/admin/experience" method="POST" class="w-50 ml-4 mt-4">
-  <input
-    type="text"
-    name="job_title"
-    class="form-control my-2"
-    placeholder="Job title"
-  />
-  <input
-    type="text"
-    name="company"
-    class="form-control my-2"
-    placeholder="Company name"
-  />
-  <input
-    type="text"
-    name="job_date"
-    class="form-control my-2"
-    placeholder="Job date"
-  />
-  <input
-    type="text"
-    name="job_content"
-    class="form-control my-2"
-    placeholder="Job content"
-  />
-  <input type="submit" class="btn btn-warning my-2" value="Add" />
-</form>
+{% extends "admin/dashboard.html" %} {% block content %}
+<div class="container">
+  <h1 class="adminpage ml-4 mt-4">Add Experience</h1>
+  <form action="/admin/experience" method="POST" class="w-50 ml-4 mt-4">
+    <input
+      type="text"
+      name="job_title"
+      class="form-control my-2"
+      placeholder="Job title"
+    />
+    <input
+      type="text"
+      name="company"
+      class="form-control my-2"
+      placeholder="Company name"
+    />
+    <input
+      type="text"
+      name="job_date"
+      class="form-control my-2"
+      placeholder="Job date"
+    />
+    <input
+      type="text"
+      name="job_content"
+      class="form-control my-2"
+      placeholder="Job content"
+    />
+    <input type="submit" class="btn btn-warning my-2" value="Add" />
+  </form>
 
-<h1 class="adminpage ml-4 mt-3">Experience page</h1>
-<table class="table table-hover mt-4 ml-4">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Job title</th>
-      <th scope="col">Company</th>
-      <th scope="col">Job date</th>
-      <th scope="col">Job content</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for experience in experiences %}
-    <tr>
-      <th scope="row">{{experience.id}}</th>
-      <td>{{experience.job_title}}</td>
-      <td>{{experience.company}}</td>
-      <td>{{experience.job_date}}</td>
-      <td>{{experience.job_content}}</td>
-      <td>
-        <a href="/deleteexp/{{experience.id}}" class="btn btn-outline-danger">Delete</a>
-        <a href="/updateexp/{{experience.id}}" class="btn btn-outline-secondary">Edit</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+  <h1 class="adminpage ml-4 mt-3">Experience page</h1>
+  <table class="table table-hover mt-4 ml-4">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Job title</th>
+        <th scope="col">Company</th>
+        <th scope="col">Job date</th>
+        <th scope="col">Job content</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for experience in experiences %}
+      <tr>
+        <th scope="row">{{experience.id}}</th>
+        <td>{{experience.job_title}}</td>
+        <td>{{experience.company}}</td>
+        <td>{{experience.job_date}}</td>
+        <td>{{experience.job_content}}</td>
+        <td>
+          <a href="/deleteexp/{{experience.id}}" class="btn btn-outline-danger"
+            >Delete</a
+          >
+          <a
+            href="/updateexp/{{experience.id}}"
+            class="btn btn-outline-secondary"
+            >Edit</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
 {% endblock %}

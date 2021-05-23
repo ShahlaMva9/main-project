@@ -1,58 +1,67 @@
-{% extends "admin/base.html" %} {% block content %}
-<h1 class="adminpage ml-4 mt-4">Add Education</h1>
-<form action="/admin/education" method="POST" class="w-50 ml-4 mt-4">
-  <input
-    type="text"
-    name="education_title"
-    class="form-control my-2"
-    placeholder="Education title"
-  />
-  <input
-    type="text"
-    name="university_name"
-    class="form-control my-2"
-    placeholder="University name"
-  />
-  <input
-    type="text"
-    name="education_date"
-    class="form-control my-2"
-    placeholder="Education date"
-  />
-  <input
-    type="text"
-    name="education_content"
-    class="form-control my-2"
-    placeholder="Education content"
-  />
-  <input type="submit" class="btn btn-warning my-2" value="Add" />
-</form>
-<h1 class="adminpage ml-4 mt-3">Education page</h1>
-<table class="table table-hover mt-4 ml-4">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Education title</th>
-      <th scope="col">University name</th>
-      <th scope="col">Education date</th>
-      <th scope="col">Education content</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for education in educations %}
-    <tr>
-      <th scope="row">{{education.id}}</th>
-      <td>{{education.education_title}}</td>
-      <td>{{education.university_name}}</td>
-      <td>{{education.education_date}}</td>
-      <td>{{education.education_content}}</td>
-      <td>
-        <a href="/deleteedu/{{education.id}}" class="btn btn-outline-danger">Delete</a>
-        <a href="/updateedu/{{education.id}}" class="btn btn-outline-secondary">Edit</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+{% extends "admin/dashboard.html" %} {% block content %}
+<div class="container">
+  <h1 class="adminpage ml-4 mt-4">Add Education</h1>
+  <form action="/admin/education" method="POST" class="w-50 ml-4 mt-4">
+    <input
+      type="text"
+      name="education_title"
+      class="form-control my-2"
+      placeholder="Education title"
+    />
+    <input
+      type="text"
+      name="university_name"
+      class="form-control my-2"
+      placeholder="University name"
+    />
+    <input
+      type="text"
+      name="education_date"
+      class="form-control my-2"
+      placeholder="Education date"
+    />
+    <input
+      type="text"
+      name="education_content"
+      class="form-control my-2"
+      placeholder="Education content"
+    />
+    <input type="submit" class="btn btn-warning my-2" value="Add" />
+  </form>
+  <h1 class="adminpage ml-4 mt-3">Education page</h1>
+  <table class="table table-hover mt-4 ml-4">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Education title</th>
+        <th scope="col">University name</th>
+        <th scope="col">Education date</th>
+        <th scope="col">Education content</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for education in educations %}
+      <tr>
+        <th scope="row">{{education.id}}</th>
+        <td>{{education.education_title}}</td>
+        <td>{{education.university_name}}</td>
+        <td>{{education.education_date}}</td>
+        <td>{{education.education_content}}</td>
+        <td>
+          <a href="/deleteedu/{{education.id}}" class="btn btn-outline-danger"
+            >Delete</a
+          >
+          <a
+            href="/updateedu/{{education.id}}"
+            class="btn btn-outline-secondary"
+            >Edit</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
 {% endblock %}

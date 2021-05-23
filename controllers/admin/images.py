@@ -1,7 +1,8 @@
 from run import app 
 from flask import render_template,redirect,request
 import os 
-
+from flask_login import login_required
+@login_required
 @app.route('/admin/images', methods=['GET','POST'])
 def admin_images_index():
     from run import db

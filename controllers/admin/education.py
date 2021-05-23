@@ -1,7 +1,8 @@
 from run import app 
 from flask import render_template,redirect,request
-
+from flask_login import login_required
 @app.route('/admin/education',methods=['GET','POST'])
+@login_required
 def admin_education_index():
     from run import db
     from models import Education 

@@ -1,8 +1,9 @@
 from run import app
 from flask import render_template,redirect,request
-
+from flask_login import login_required
 # from run import db 
 @app.route('/admin/persinfo',methods=["GET","POST"])
+@login_required
 def admin_persinfo_index():
     from run import db
     from models import Persoinfo   
