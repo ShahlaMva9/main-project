@@ -9,10 +9,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-
     <link
+      href="{{ url_for('static', filename='bootstrap.min.css') }}"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
     <link
       rel="stylesheet"
@@ -57,7 +56,7 @@
               </div>
             </div>
             <div class="box-item demo">
-              <div class="box-item-inner">
+              <div class="box-item-inner box-item-inner__with-click">
                 <div class="title d-flex justify-content-center">
                   <span class="part1">ABOUT</span> <span class="part2">ME</span>
                 </div>
@@ -107,7 +106,7 @@
                     </div>
                     <div class="col-2">
                       <button class="persinfo-btn my-blog">
-                        <b> <a href="">My blog</a></b>
+                        <b> <a href="/blog">My blog</a></b>
                         <i class="fas fa-edit ml-1"></i>
                       </button>
                     </div>
@@ -240,12 +239,13 @@
               </div>
             </div>
             <div class="box-item about">
-              <div class="box-item-inner">
+              <div class="box-item-inner box-item-inner__with-click">
                 <div class="title d-flex justify-content-center">
                   <span class="part1">MY</span>
                   <span class="part2">PORTFOLIO</span>
                 </div>
                 <div class="content">
+                  <div class="closeBtn"><i class="fas fa-times"></i></div>
                   <div class="divider d-flex justify-content-center">
                     <span class="divider1"></span>
                     <i class="fas fa-suitcase mx-4"></i>
@@ -284,12 +284,13 @@
               </div>
             </div>
             <div class="box-item me">
-              <div class="box-item-inner">
+              <div class="box-item-inner box-item-inner__with-click">
                 <div class="title d-flex justify-content-center">
                   <span class="part1">GET</span>
                   <span class="part2">IN TOUCH</span>
                 </div>
                 <div class="content">
+                  <div class="closeBtn"><i class="fas fa-times"></i></div>
                   <div class="divider d-flex justify-content-center">
                     <span class="divider1"></span>
                     <i class="fas fa-envelope-open mx-4"></i>
@@ -320,7 +321,12 @@
                         say Hello.. please fill out the form below and I will
                         reply you shortly.
                       </p>
-                      <form action="/admin/form" class="d-flex flex-column">
+
+                      <form
+                        action="/admin/form"
+                        class="d-flex flex-column"
+                        method="POST"
+                      >
                         <div>
                           <i class="fas fa-user mr-3"></i>
                           <input

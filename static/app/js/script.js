@@ -11,19 +11,24 @@ function addClick(event) {
   event.stopPropagation();
   const parentElement = this.parentElement;
   const parentClasses = parentElement.classList;
-  console.log("parentClasses", parentClasses[1]);
   const hasClass = box.classList.contains(`box-${parentClasses[1]}-expand`);
-  if (hasClass) {
-    box.classList.remove(`box-${parentClasses[1]}-expand`);
-    box.classList.remove(`expand`);
-  } else {
-    box.classList.add(`box-${parentClasses[1]}-expand`);
-    box.classList.add(`expand`);
-  }
+
+  box.classList.add(`box-${parentClasses[1]}-expand`);
+  box.classList.add(`expand`);
 }
 
 itemsInner.forEach((item) => {
   item.addEventListener("click", addClick);
+});
+
+closeBtn.forEach((item) => {
+  item.addEventListener("click", function (e) {
+    e.stopPropagation();
+    const parentElement = this.parentElement.parentElement.parentElement;
+    const parentClasses = parentElement.classList;
+    box.classList.remove(`box-${parentClasses[1]}-expand`);
+    box.classList.remove(`expand`);
+  });
 });
 
 function openTab(evt, tabName) {
@@ -39,6 +44,13 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
 $(".snake").snakeify({
-  speed: 200,
+  speed: 100,
+});
+
+content.forEach((item) => {
+  item.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
 });

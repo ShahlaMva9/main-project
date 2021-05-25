@@ -1,6 +1,6 @@
 from flask import Flask,send_file,render_template
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from flask_migrate import Migrate,migrate
 from flask_wtf import FlaskForm 
 from wtforms import StringField,PasswordField,BooleanField
 from wtforms.validators import InputRequired ,Email,Length
@@ -22,7 +22,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 # app.config['SECURE_KEY']='mysecret'
 db = SQLAlchemy(app)
 
-migrate = Migrate(app, db)
+
 bootstrap = Bootstrap(app)
 
 from controllers.app.main import *
@@ -35,6 +35,8 @@ from controllers.admin.myexperience import *
 from controllers.admin.images import *
 from controllers.admin.socialprof import *
 from controllers.admin.home import *
+from controllers.admin.form import *
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -44,8 +46,8 @@ def load_user(user_id):
 @login_manager.unauthorized_handler
 def unauthorized():
     return redirect('/admin/login')
-
 db.create_all()
+migrate=Migrate(app,db)
 
 if __name__=='__main__':
     app.run(debug=True)

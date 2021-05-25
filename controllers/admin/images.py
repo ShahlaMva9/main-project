@@ -15,6 +15,7 @@ def admin_images_index():
 
         image=Image(
             image=filename
+            
         )
         db.session.add(image)
         db.session.commit()

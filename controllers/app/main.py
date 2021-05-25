@@ -22,3 +22,6 @@ def download_file():
     p="static/app/assets/output.png"
     return send_file(p,as_attachment=True)
 
+@app.route('/blog')
+def blog_index():
+     return render_template ("app/blog.html")

@@ -43,6 +43,7 @@ class Myexperience(db.Model):
 class Image(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     image=db.Column(db.String(100))
+ 
 class SocialIcon(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     contact_title=db.Column(db.String(50))
@@ -64,3 +65,9 @@ class RegisterForm(FlaskForm):
     email=StringField('email',validators=[InputRequired()])
     username=StringField('username',validators=[InputRequired()])
     password=PasswordField('password',validators=[InputRequired()])
+
+class Form(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    name=db.Column(db.String(20),unique=True)
+    email=db.Column(db.String(50),unique=True)
+    comment=db.Column(db.String(80))
