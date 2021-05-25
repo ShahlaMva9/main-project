@@ -2,11 +2,10 @@ const box = document.getElementById("box");
 const itemsInner = document.querySelectorAll(".box-item-inner");
 const title = document.querySelectorAll(".title");
 const content = document.querySelectorAll(".content");
-const closeBtn = document.querySelector(".closeBtn");
 const boxItem = document.querySelectorAll(".box-item");
 const expbtn = document.querySelectorAll(".expbtn");
 const accord = document.querySelectorAll(".accord");
-
+const closeBtn = document.querySelectorAll(".closeBtn");
 // esas sehifede acilan div
 function addClick(event) {
   event.stopPropagation();
@@ -40,4 +39,6 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-// image hover
+$(".snake").snakeify({
+  speed: 200,
+});

@@ -63,6 +63,8 @@
                 </div>
 
                 <div class="content">
+                  <div class="closeBtn"><i class="fas fa-times"></i></div>
+
                   <div class="divider d-flex justify-content-center">
                     <span class="divider1"></span>
                     <i class="fas fa-address-card mx-4"></i>
@@ -250,18 +252,33 @@
                     <span class="divider2"></span>
                   </div>
 
-                  <div class="row my-5 d-flex flex-wrap mx-1 img-wrapper">
+                  <div
+                    class="
+                      row
+                      my-5
+                      d-flex
+                      flex-wrap
+                      justify-content-center
+                      align-items-center
+                      img-wrapper
+                    "
+                  >
                     {% for image in images %}
-                    <div class="col-4 mt-4 img snake">
-                      <img
-                        src="/static/uploads/{{image.image}}"
-                        alt=""
-                        class="img-thumbnail"
-                      />
+                    <div class="col-4">
+                      <div class="img snake">
+                        <img
+                          src="/static/uploads/{{image.image}}"
+                          alt=""
+                          class="img-thumbnail"
+                        />
+                        <div class="overlay">
+                          <h6>Image project</h6>
+                        </div>
+                      </div>
                     </div>
+
                     {% endfor %}
                   </div>
-
                   <hr />
                 </div>
               </div>
@@ -292,7 +309,7 @@
                       </div>
                       {% endfor %}
                       <div class="social-icons">
-                        <i class="fab fa-facebook-f"></i>
+                        <div>social icons</div>
                       </div>
                     </div>
 
@@ -342,6 +359,8 @@
       </div>
     </div>
     <!-- {% block personalInfo %} data {% endblock %} -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='/app/js/snake.js') }}"></script>
     <script src="{{ url_for('static', filename='/app/js/script.js') }}"></script>
   </body>
 </html>

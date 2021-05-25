@@ -59,6 +59,7 @@ class LoginForm(FlaskForm):
     username=StringField('username',validators=[InputRequired()])
     password=PasswordField('password',validators=[InputRequired()])
     remember=BooleanField('remember me')
+    
 class RegisterForm(FlaskForm):
     email=StringField('email',validators=[InputRequired()])
     username=StringField('username',validators=[InputRequired()])
