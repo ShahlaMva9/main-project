@@ -66,6 +66,20 @@
   .my-info {
     font-size: 1.4em;
   }
+  .personal-info {
+    margin-top: 15px;
+  }
+  .divider {
+    margin-top: 10%;
+  }
+  .box-demo-expand > .demo .title,
+  .box-about-expand > .about .title,
+  .box-me-expand > .me .title {
+    font-size: 2.6em;
+  }
+  .tab-title {
+    font-size: 1.2em;
+  }
 }
 @media (max-width: 703px) {
   .inner-img {
@@ -74,13 +88,14 @@
     margin: 0 auto;
   }
   .inner-img img {
-    width: 100%;
+    width: 90%;
     height: 520px;
     object-fit: cover;
   }
   .persinfo-wrapper {
     width: 80%;
     margin: 0 auto;
+    font-size: 0.9em;
   }
 }
 @media (max-width: 576px) {
