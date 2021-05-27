@@ -13,6 +13,7 @@ def main_index():
     myexperiences=Myexperience.query.all()
     images=Image.query.all()
     social_icons=SocialIcon.query.all()
+    
     return render_template ("app/index.html",persoinfos=persoinfos,experiences=experiences,educations=educations,skills=skills,myexperiences=myexperiences,images=images,social_icons=social_icons)
 
 # download file

@@ -46,11 +46,23 @@ function openTab(evt, tabName) {
 }
 
 $(".snake").snakeify({
-  speed: 100,
+  speed: 150,
 });
 
 content.forEach((item) => {
   item.addEventListener("click", function (e) {
     e.stopPropagation();
+  });
+});
+
+$(function () {
+  $("#form").submit(function (e) {
+    e.preventDefault();
+    const t = $("#form").serializeArray();
+    console.log("t", t);
+    $.post("/admin/form", $(this).serialize(), function (success) {
+      console.log("success", success);
+      $("#form").trigger("reset");
+    });
   });
 });
