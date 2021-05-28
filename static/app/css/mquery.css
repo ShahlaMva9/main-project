@@ -1,14 +1,14 @@
 @media (max-width: 992px) {
   body {
     font-size: 14px;
-    background-color: aqua;
   }
   .main-picture {
-    display: none;
+    display: none !important;
   }
   .box,
   .main-content {
-    width: 100%;
+    width: calc(100% - 24px);
+    left: 24px !important;
   }
   .persinfo-wrapper {
     width: 67%;
@@ -35,13 +35,48 @@
   }
 }
 @media (max-width: 768px) {
+  .box-demo-expand .demo {
+    top: 24px !important;
+    width: calc(100% - 24px);
+  }
+
+  .box-about-expand .about {
+    top: 24px !important;
+    width: calc(100% - 24px);
+  }
+
+  .box-me-expand .me {
+    top: 24px !important;
+    width: calc(100% - 24px);
+  }
+
   body {
     font-size: 15px;
-    background-color: red;
   }
   .main-picture {
     display: none;
   }
+  .box-item {
+    width: calc(100% - 24px);
+    height: 17%;
+  }
+  .box-item:nth-child(1) {
+    height: auto;
+    top: 20%;
+  }
+  .box-item:nth-child(2) {
+    left: 0;
+    top: calc(49% - 72px);
+  }
+  .box-item:nth-child(3) {
+    left: 0;
+    top: calc(66% - 48px);
+  }
+  .box-item:nth-child(4) {
+    left: 0;
+    top: calc(83% - 24px);
+  }
+
   .contacts,
   .form {
     width: 100%;
@@ -101,7 +136,6 @@
 @media (max-width: 576px) {
   body {
     font-size: 15.3px;
-    background-color: burlywood;
   }
   .main-picture {
     display: none;

@@ -12,55 +12,96 @@
     <title>Document</title>
   </head>
   <body>
-    <nav class="navbar m-0 p-0 bg-dark">
-      <div class="container">
-        <ul class="navbar-nav d-flex flex-row p-2">
-          <li class="nav-item ml-3">
-            <a class="nav-link active" aria-current="page" href="/admin/home"
-              >Home</a
-            >
-          </li>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        {% if url_for(request.endpoint) == '/admin/dashboard' %}
+        <span class="navbar-brand">Admin panel</span>
+        {% else %}
+        <a class="navbar-brand" href="/admin/dashboard">Admin panel</a>
+        {% endif %}
 
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="/admin/persinfo">Personal Info</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/experience">Experience</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="/admin/education">Education</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/skill">Skill</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="/admin/myexperience">My experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/images">Images</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="/admin/socialprof">Contacts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/myblog">My BLog</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="/admin/form">Messages</a>
-          </li>
-        </ul>
-        <div class="d-flex align-items-center">
-          <div style="color: beige">{{ current_user.username }}</div>
-          <button
-            class="btn btn-danger m-2"
-            onclick="window.location.href = '/logout'"
-          >
-            Logut
-          </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/admin/home"
+                >Home</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/persinfo">Personal Info</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarScrollingDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Achievements
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarScrollingDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="/admin/experience"
+                    >Experience</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/admin/education">Education</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/admin/skill">Skill</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/admin/myexperience"
+                    >My experience</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/images">Images</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/socialprof">Contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/myblog">My BLog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/form">Messages</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <div style="color: beige">{{ current_user.username }}</div>
+            <button
+              class="btn btn-danger m-2"
+              onclick="window.location.href = '/logout'"
+            >
+              Logut
+            </button>
+          </div>
         </div>
       </div>
     </nav>
-
+    <!-- New end -->
+    <script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
     {% block content %} {% endblock %}
   </body>
 </html>

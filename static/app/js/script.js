@@ -11,8 +11,9 @@ function addClick(event) {
   event.stopPropagation();
   const parentElement = this.parentElement;
   const parentClasses = parentElement.classList;
+  console.log("parentClasses", parentClasses);
   const hasClass = box.classList.contains(`box-${parentClasses[1]}-expand`);
-
+  this.classList.add("flex-column");
   box.classList.add(`box-${parentClasses[1]}-expand`);
   box.classList.add(`expand`);
 }
@@ -25,6 +26,7 @@ closeBtn.forEach((item) => {
   item.addEventListener("click", function (e) {
     e.stopPropagation();
     const parentElement = this.parentElement.parentElement.parentElement;
+    this.parentElement.parentElement.classList.remove("flex-column");
     const parentClasses = parentElement.classList;
     box.classList.remove(`box-${parentClasses[1]}-expand`);
     box.classList.remove(`expand`);

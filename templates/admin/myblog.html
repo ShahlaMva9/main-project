@@ -6,7 +6,7 @@
     method="POST"
     enctype="multipart/form-data"
     class="w-50 ml-4 mt-4"
-  > 
+  >
     <input
       type="text"
       name="title"
@@ -38,11 +38,12 @@
       class="form-control my-2"
       placeholder="Tags"
     />
-  
+
     <input type="submit" class="btn btn-warning my-2" value="Add" />
   </form>
-  <h1 class="adminpage ml-4 mt-3">Blog</h1>
- <table class="table table-hover mt-4 ml-4">
+  {% if myblogs %}
+  <h1 class="adminpage ml-4 mt-3">Blogs</h1>
+  <table class="table table-hover mt-4 ml-4">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -53,7 +54,6 @@
         <th scope="col">Tags</th>
         <th scope="col">Comments</th>
         <th scope="col">Actions</th>
-        
       </tr>
     </thead>
     <tbody>
@@ -68,17 +68,24 @@
         <th scope="row">{{myblog.tags}}</th>
 
         <td>
-          <a href="" class="btn btn-outline-danger"
-            >Delete</a
-          >
-          <a href="" class="btn btn-outline-secondary"
-            >Edit</a
-          >
+          <a href="" class="btn btn-outline-danger">Delete</a>
+          <a href="" class="btn btn-outline-secondary">Edit</a>
         </td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
+  {% else %}
+  <div class="d-flex">
+    <div class="card w-100 text-center pt-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          <p>No data yet!</p>
+        </h5>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 </div>
 
 {% endblock %}
