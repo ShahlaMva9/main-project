@@ -9,74 +9,42 @@
       class="form-control my-2"
       placeholder="Contact name"
     />
-    <input
-      type="text"
+    <select
       name="contact_icon"
-      class="form-control my-2"
-      placeholder="Contact icon"
-    />
+      class="form-select"
+      aria-label="Default select example"
+    >
+      <option selected disabled>Select contact type</option>
+      <option value="fas fa-phone">Phone</option>
+      <option value="fas fa-envelope-open-text">Email</option>
+      <option value="fas fa-address-card">Address</option>
+      <option value="fab fa-skype">Skype Account</option>
+    </select>
     <input
       type="text"
       name="contact_info"
       class="form-control my-2"
       placeholder="Contact info"
     />
-    <select name="socialIcon" id="" class="form-control my-2">
-      <option value="0">Choose socail profile</option>
-      <option value="facebook">Facebook</option>
-      <option value="instagram">Instagram</option>
-      <option value="twitter">Twitter</option>
+    <select
+      name="social_icon"
+      class="form-select"
+      aria-label="Default select example"
+    >
+      <option selected disabled>Select social type</option>
+      <option value="fab fa-facebook-f">Facebook</option>
+      <option value="fab fa-instagram">Instagram</option>
+      <option value="fab fa-twitter">Twitter</option>
+      <option value="fab fa-linkedin-in">LinkedIn</option>
+      <option value="fab fa-google-plus-g">Google +</option>
+      <option value="fab fa-skype">Skype</option>
     </select>
-
-    <div class="social-profiles__container">
-      <h5>Social profile</h5>
-      <table class="table">
-        <thead>
-          <tr>
-            <td>N</td>
-            <td>Name</td>
-            <td>Link</td>
-            <td>Type</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>FaceBook</td>
-            <td><span>http://filansite.com</span></td>
-            <td>
-              <span>Facebook</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <td>Name</td>
-            <td>Link</td>
-            <td>Type</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td>
-              <select name="socialIcon" id="" class="form-select-sm">
-                <option value="0">Choose socail profile</option>
-                <option value="facebook">Facebook</option>
-                <option value="instagram">Instagram</option>
-                <option value="twitter">Twitter</option>
-              </select>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <button type="button" class="btn btn-success btn-sm">Add Social</button>
-    </div>
+    <input
+      type="text"
+      name="social_link"
+      class="form-control my-2"
+      placeholder="Social link"
+    />
 
     <input type="submit" class="btn btn-warning my-2" value="Add" />
   </form>
@@ -89,7 +57,8 @@
         <th scope="col">Contact name</th>
         <th scope="col">Contact icon</th>
         <th scope="col">Contact info</th>
-        <th scope="col">Social profile</th>
+        <th scope="col">Social icon</th>
+        <th scope="col">Social link</th>
       </tr>
     </thead>
     <tbody>
@@ -99,8 +68,8 @@
         <td>{{social_icon.contact_title}}</td>
         <td>{{social_icon.contact_icon}}</td>
         <td>{{social_icon.contact_info}}</td>
-        <td>{{social_icon.socialIcon}}</td>
-
+        <td>{{social_icon.social_icon}}</td>
+        <td>{{social_icon.social_link}}</td>
         <td>
           <a
             href="/deletesocialicon/{{social_icon.id}}"

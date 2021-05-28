@@ -1,6 +1,7 @@
 from run import app 
 from flask import render_template,redirect,request
 from flask_login import login_required
+
 @app.route('/admin/socialprof',methods=["GET","POST"])
 @login_required
 def admin_socialicon_index():
@@ -12,7 +13,9 @@ def admin_socialicon_index():
             contact_title=request.form['contact_title'],
             contact_info=request.form['contact_info'],
             contact_icon=request.form['contact_icon'],
-            socialIcon=request.form['socialIcon']
+            social_icon=request.form['social_icon'],
+            social_link=request.form['social_link']
+
         )
         db.session.add(social_icon)
         db.session.commit()
@@ -42,7 +45,8 @@ def update_social_icon(id):
         updatesocialicon.contact_title = request.form['contact_title']
         updatesocialicon.contact_info = request.form['contact_info']
         updatesocialicon.contact_icon = request.form['contact_icon']
-        updatesocialicon.socialIcon = request.form['socialIcon']
+        updatesocialicon.social_icon = request.form['social_icon']
+        updatesocialicon.social_link = request.form['social_lin']
       
         try:
             db.session.commit()

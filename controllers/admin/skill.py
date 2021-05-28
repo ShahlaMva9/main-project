@@ -9,14 +9,14 @@ def admin_skill_index():
     from models import Skill 
     skills=Skill.query.all()
     if request.method == 'POST':
+         selectedSkill = int(request.form['skill-select'])
          skill=Skill(
              skill_name=request.form['skill_name'],
-             skill_rate1=request.form['skill_rate1'],
-             skill_rate2=request.form['skill_rate2'],
-             skill_rate3=request.form['skill_rate3'],
-             skill_rate4=request.form['skill_rate4'],
-             skill_rate5=request.form['skill_rate5']
-
+             skill_rate1= "fas fa-star checked" if selectedSkill >= 1 else "fas fa-star",
+             skill_rate2= "fas fa-star checked" if selectedSkill >= 2 else "fas fa-star",
+             skill_rate3= "fas fa-star checked" if selectedSkill >= 3 else "fas fa-star",
+             skill_rate4= "fas fa-star checked" if selectedSkill >= 4 else "fas fa-star",
+             skill_rate5="fas fa-star checked" if selectedSkill == 5 else "fas fa-star"
          )
          db.session.add(skill)
          db.session.commit()

@@ -16,6 +16,17 @@
       placeholder="Contact info"
       value="{{updatesocialicon.contact_info}}"
     />
+    <select
+      name="contact_icon"
+      class="form-select"
+      aria-label="Default select example"
+    >
+      <option selected disabled>Select contact type</option>
+      <option value="fas fa-phone">Phone</option>
+      <option value="fas fa-envelope-open-text">Email</option>
+      <option value="fas fa-address-card">Address</option>
+      <option value="fab fa-skype">Skype Account</option>
+    </select>
     <input
       type="text"
       class="form-control my-2"
@@ -23,12 +34,20 @@
       placeholder="Contact icon"
       value="{{updatesocialicon.contact_icon}}"
     />
-    <select name="socialIcon" id="" class="form-control my-2">
-      <option value="0">Choose socail profile</option>
-      <option value="facebook">Facebook</option>
-      <option value="instagram">Instagram</option>
-      <option value="twitter">Twitter</option>
-    </select>
+    <input
+      type="text"
+      class="form-control my-2"
+      name="social_icon"
+      placeholder="Social icon"
+      value="{{updatesocialicon.social_icon}}"
+    />
+    <input
+      type="text"
+      class="form-control my-2"
+      name="social_link"
+      placeholder="Social link"
+      value="{{updatesocialicon.social_link}}"
+    />
 
     <input type="submit" class="btn btn-primary" value="Update contact" />
   </form>
