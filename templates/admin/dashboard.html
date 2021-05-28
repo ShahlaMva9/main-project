@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
       href="{{ url_for('static', filename='bootstrap.min.css') }}"
       rel="stylesheet"
     />
@@ -34,13 +38,20 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/admin/home"
+              <a
+                class="nav-link {{'active' if '/admin/home' in request.path else  ''}}"
+                aria-current="page"
+                href="/admin/home"
                 >Home</a
               >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/admin/persinfo">Personal Info</a>
+              <a
+                class="nav-link {{'active' if '/admin/persinfo' in request.path else  ''}}"
+                href="/admin/persinfo"
+                >Personal Info</a
+              >
             </li>
             <li class="nav-item dropdown">
               <a
@@ -76,16 +87,32 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin/images">Images</a>
+              <a
+                class="nav-link {{'active' if '/admin/images' in request.path else  ''}}"
+                href="/admin/images"
+                >Images</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin/socialprof">Contacts</a>
+              <a
+                class="nav-link {{'active' if '/admin/socialprof' in request.path else  ''}}"
+                href="/admin/socialprof"
+                >Contacts</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin/myblog">My BLog</a>
+              <a
+                class="nav-link {{'active' if '/admin/myblog' in request.path else  ''}}"
+                href="/admin/myblog"
+                >My BLog</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin/form">Messages</a>
+              <a
+                class="nav-link {{'active' if '/admin/form' in request.path else  ''}}"
+                href="/admin/form"
+                >Messages</a
+              >
             </li>
           </ul>
           <div class="d-flex align-items-center">

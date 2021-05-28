@@ -13,6 +13,9 @@ body {
 .nav-link:hover {
   color: orange;
 }
+.checked {
+  color: orange;
+}
 .adminpage {
   font-size: 1.4em;
   color: #222;

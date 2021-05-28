@@ -2,7 +2,7 @@ from run import app
 from flask import render_template,redirect,request, jsonify
 from flask_login import login_required
 
-@app.route('/admin/form',methods=['POST'])
+@app.route('/admin/form',methods=['GET','POST'])
 def admin_form_index():
     from run import db
     from models import Message
@@ -17,6 +17,7 @@ def admin_form_index():
         db.session.commit()
         data = {'name': 'nabin khadka'}
         return ('', 200)
+    return render_template("/admin/form.html", messages=messages)
     
 
 @app.route('/deletemessage/<int:id>')
