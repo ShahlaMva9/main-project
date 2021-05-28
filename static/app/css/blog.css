@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    color: #666666;
+}
+.title {
+    font-size:3em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+.title .part2 {
+    color: #daa520;
+    margin-left: 10px;
+  }
+.download-resume {
+    background-color: #daa520;
+  }
+.download-resume a {
+    color: white;
+    text-decoration: none;
+  }
+
+.persinfo-btn {
+    border: 1px solid #daa520;
+    padding: 5px 60px;
+    text-align: center;
+    outline: none;
+  }
+.user-name, .post-date i,.post-comment,.tags i,.permalink {
+    color: #daa520;
+}

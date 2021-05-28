@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="{{ url_for('static', filename='bootstrap.min.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/app/css/blog.css') }}"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="title d-flex justify-content-center my-5">
+      <span class="part1">MY</span> <span class="part2">BLOG</span>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <div class="row">
+            <h4>HOW TO BE A SUCCESSFUL FREELANCER</h4>
+            <div class="col-12 mt-2">
+              <img src="/static/app/assets/Без названия.jpg" alt="" />
+              <p class="my-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                blandit massa vel mauris Lorem ipsum dolor sit amet Lorem ipsum
+                dol sit amet Lorem ipsum dol or sit amet, consectetur adipiscing
+                elit. Sed blandit massa vel mauris Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Sed blandit massa vel mauris ...
+              </p>
+              <button class="persinfo-btn download-resume">
+                <b> <a href="">Read more</a></b>
+              </button>
+              <hr />
+              <div class="d-flex flex-row justify-content-between col-8">
+                <span class="user-name">
+                  <i class="fas fa-user p-1"></i>admin
+                </span>
+
+                <span class="post-date">
+                  <i class="fas fa-calendar-alt p-1"></i>09.01.2017
+                </span>
+                <span class="post-comment">
+                  <i class="fas fa-comments p-1"></i>18
+                </span>
+                <span class="tags"
+                  ><i class="fas fa-tags"></i> js,php,html</span
+                >
+                <span class="permalink"
+                  ><i class="fas fa-link"></i> permalink</span
+                >
+              </div>
+
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="col-4">col-4</div>
+      </div>
+    </div>
+  </body>
+</html>

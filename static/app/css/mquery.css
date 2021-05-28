@@ -1,0 +1,152 @@
+@media (max-width: 992px) {
+  body {
+    font-size: 14px;
+  }
+  .main-picture {
+    display: none !important;
+  }
+  .box,
+  .main-content {
+    width: calc(100% - 24px);
+    left: 24px !important;
+  }
+  .persinfo-wrapper {
+    width: 67%;
+    display: inline-block;
+  }
+  .inner-img {
+    width: 33%;
+
+    display: inline-block;
+  }
+  .inner-img img {
+    margin-left: 20px;
+  }
+  .persinfo-btn-groups {
+    display: flex;
+    flex-direction: column;
+  }
+  .persinfo-btn-wrapper {
+    width: 100%;
+  }
+  .persinfo-btn {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .box-demo-expand .demo {
+    top: 24px !important;
+    width: calc(100% - 24px);
+  }
+
+  .box-about-expand .about {
+    top: 24px !important;
+    width: calc(100% - 24px);
+  }
+
+  .box-me-expand .me {
+    top: 24px !important;
+    width: calc(100% - 24px);
+  }
+
+  body {
+    font-size: 15px;
+  }
+  .main-picture {
+    display: none;
+  }
+  .box-item {
+    width: calc(100% - 24px);
+    height: 17%;
+  }
+  .box-item:nth-child(1) {
+    height: auto;
+    top: 20%;
+  }
+  .box-item:nth-child(2) {
+    left: 0;
+    top: calc(49% - 72px);
+  }
+  .box-item:nth-child(3) {
+    left: 0;
+    top: calc(66% - 48px);
+  }
+  .box-item:nth-child(4) {
+    left: 0;
+    top: calc(83% - 24px);
+  }
+
+  .contacts,
+  .form {
+    width: 100%;
+  }
+  .form {
+    margin-top: 15px;
+  }
+  .tab-btn-groups {
+    display: none;
+  }
+  .tab-content-parent {
+    width: 100%;
+  }
+  #Education,
+  #Skill {
+    display: block;
+    margin-top: 15px;
+  }
+  .title {
+    font-size: 1.8em;
+  }
+  .my-info {
+    font-size: 1.4em;
+  }
+  .personal-info {
+    margin-top: 15px;
+  }
+  .divider {
+    margin-top: 10%;
+  }
+  .box-demo-expand > .demo .title,
+  .box-about-expand > .about .title,
+  .box-me-expand > .me .title {
+    font-size: 2.6em;
+  }
+  .tab-title {
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 703px) {
+  .inner-img {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .inner-img img {
+    width: 90%;
+    height: 520px;
+    object-fit: cover;
+  }
+  .persinfo-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 0.9em;
+  }
+}
+@media (max-width: 576px) {
+  body {
+    font-size: 15.3px;
+  }
+  .main-picture {
+    display: none;
+  }
+  .badges .col-4 {
+    width: 100%;
+  }
+  .title {
+    font-size: 1.6em;
+  }
+  .my-info {
+    font-size: 1.2em;
+  }
+}

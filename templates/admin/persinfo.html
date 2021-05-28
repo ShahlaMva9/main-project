@@ -20,10 +20,11 @@
       placeholder="Personal Info content"
     />
 
-    <input type="submit" class="btn btn-warning my-2" value="Add" />
+    <input type="submit" class="btn btn-success my-2" value="Add" />
   </form>
 
-  <h1 class="adminpage ml-4 mt-4">Personal information</h1>
+  <h1 class="adminpage ml-4 mt-4">Personal informations</h1>
+  {% if persoinfos %}
   <table class="table table-hover mt-4 ml-4">
     <thead>
       <tr>
@@ -56,6 +57,17 @@
       {% endfor %}
     </tbody>
   </table>
+  {% else %}
+  <div class="d-flex">
+    <div class="card w-100 text-center pt-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          <p>No data yet!</p>
+        </h5>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 </div>
 
 {% endblock %}

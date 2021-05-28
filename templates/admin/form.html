@@ -1,0 +1,33 @@
+{% extends "admin/dashboard.html" %} {% block content %}
+<div class="container">
+  <h1 class="adminpage ml-4 mt-4">Add Education</h1>
+  <table class="table table-hover mt-4 ml-4">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">User name</th>
+        <th scope="col">User email</th>
+        <th scope="col">User comment</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for message in messages %}
+      <tr>
+        <th scope="row">{{message.id}}</th>
+        <td>{{message.user_name}}</td>
+        <td>{{message.user_email}}</td>
+        <td>{{message.user_comment}}</td>
+
+        <td>
+          <a href="/deletemessage/{{message.id}}" class="btn btn-outline-danger"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

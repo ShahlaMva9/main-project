@@ -1,0 +1,91 @@
+{% extends "admin/dashboard.html" %} {% block content %}
+<div class="container">
+  <h1 class="adminpage ml-4 mt-4">Add Blog</h1>
+  <form
+    action="/admin/myblog"
+    method="POST"
+    enctype="multipart/form-data"
+    class="w-50 ml-4 mt-4"
+  >
+    <input
+      type="text"
+      name="title"
+      class="form-control my-2"
+      placeholder="Post title"
+    />
+    <input type="file" name="img" class="form-control my-2 p-2" />
+    <input
+      type="text"
+      name="content"
+      class="form-control my-2"
+      placeholder="Post content"
+    />
+    <input
+      type="text"
+      name="link"
+      class="form-control my-2"
+      placeholder="Permalink"
+    />
+    <input
+      type="text"
+      name="comment"
+      class="form-control my-2"
+      placeholder="Post comments"
+    />
+    <input
+      type="text"
+      name="tags"
+      class="form-control my-2"
+      placeholder="Tags"
+    />
+
+    <input type="submit" class="btn btn-warning my-2" value="Add" />
+  </form>
+  {% if myblogs %}
+  <h1 class="adminpage ml-4 mt-3">Blogs</h1>
+  <table class="table table-hover mt-4 ml-4">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Post title</th>
+        <th scope="col">Post img</th>
+        <th scope="col">Post content</th>
+        <th scope="col">Permalink</th>
+        <th scope="col">Tags</th>
+        <th scope="col">Comments</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for myblog in myblogs %}
+      <tr>
+        <th scope="row">{{myblog.id}}</th>
+        <th scope="row">{{myblog.title}}</th>
+        <th scope="row">{{myblog.img}}</th>
+        <th scope="row">{{myblog.content}}</th>
+        <th scope="row">{{myblog.link}}</th>
+        <th scope="row">{{myblog.comment}}</th>
+        <th scope="row">{{myblog.tags}}</th>
+
+        <td>
+          <a href="" class="btn btn-outline-danger">Delete</a>
+          <a href="" class="btn btn-outline-secondary">Edit</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="d-flex">
+    <div class="card w-100 text-center pt-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          <p>No data yet!</p>
+        </h5>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
