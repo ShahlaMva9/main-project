@@ -178,7 +178,34 @@ body {
   font-weight: bold;
   color: #666;
 
+  overflow: hidden;
   width: 100%;
+}
+.title .part1,
+.title .part2 {
+  position: relative;
+  transition: 0.4s transform;
+}
+
+.title:hover .part1 {
+  transform: translateY(-105%);
+}
+
+.title:hover .part2 {
+  transform: translateY(105%);
+}
+
+.title .part1:before {
+  position: absolute;
+  content: attr(data-title);
+  color: #daa520;
+  top: 105%;
+}
+.title .part2:before {
+  position: absolute;
+  content: attr(data-title);
+  color: #222;
+  top: -105%;
 }
 .title .part2 {
   color: #daa520;

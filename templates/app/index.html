@@ -1,3 +1,51 @@
-{% extends "app/base.html" %} {% block personalInfo %}
-<h1>admin</h1>
+{% extends "app/base.html" %} {% block title %}
+<title>Portfolio</title>
+{% endblock %} {% block content %}
+
+<div id="wrapper">
+  <div class="d-flex align-items-stretch">
+    <div class="main-picture d-flex align-items-center justify-content-center">
+      <img
+        src="/static/app/assets/Без названия (1).jpg"
+        alt=""
+        class="responsive-img main-img"
+      />
+    </div>
+    <div id="box" class="box main-content">
+      <div
+        class="
+          box-item
+          myinfo
+          d-flex
+          flex-column
+          justify-content-center
+          align-items-center
+        "
+      >
+        <div class="bg-none">
+          <div class="row my-info d-flex flex-column">
+            <div class="col-12"><span> HI THERE ! I'M </span></div>
+            <div class="col-12">
+              <span class="my-name"> <b> MARK SMITH</b></span>
+            </div>
+            <div class="col-12">
+              <span class="my-job">
+                <p class="header-sub-title" id="word"></p>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-item demo">
+        {% include "app/partials/demo-content.html" %}
+      </div>
+      <div class="box-item about">
+        {% include "app/partials/about-content.html" %}
+      </div>
+      <div class="box-item me">
+        {% include "app/partials/me-content.html" %}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
