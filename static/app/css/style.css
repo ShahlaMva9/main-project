@@ -148,6 +148,8 @@ body {
 }
 .content {
   display: none;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .closeBtn {
   position: absolute;
