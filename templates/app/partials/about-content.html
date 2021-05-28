@@ -1,0 +1,43 @@
+<div class="box-item-inner box-item-inner__with-click">
+  <div class="title d-flex justify-content-center">
+    <span class="part1" data-title="MY">MY</span>
+    <span class="part2" data-title="PORTFOLIO">PORTFOLIO</span>
+  </div>
+  <div class="content">
+    <div class="closeBtn"><i class="fas fa-times"></i></div>
+    <div class="divider d-flex justify-content-center">
+      <span class="divider1"></span>
+      <i class="fas fa-suitcase mx-4"></i>
+      <span class="divider2"></span>
+    </div>
+    <div
+      class="
+        row
+        my-5
+        d-flex
+        flex-wrap
+        justify-content-center
+        align-items-center
+        img-wrapper
+        mx-2
+      "
+    >
+      {% for image in images %}
+      <div class="col-4 col-6-md col-12-s mb-4">
+        <div class="img snake">
+          <img
+            src="/static/uploads/{{image.image}}"
+            alt=""
+            class="img-thumbnail"
+          />
+          <div class="overlay">
+            <h6>Image project</h6>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+    <hr />
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="box-item-inner box-item-inner__with-click">
+  <div class="title d-flex justify-content-center">
+    <span class="part1" data-title="GET">GET</span>
+    <span class="part2" data-title="IN TOUCH">IN TOUCH</span>
+  </div>
+  <div class="content">
+    <div class="closeBtn"><i class="fas fa-times"></i></div>
+    <div class="divider d-flex justify-content-center">
+      <span class="divider1"></span>
+      <i class="fas fa-envelope-open mx-4"></i>
+      <span class="divider2"></span>
+    </div>
+    <div class="row p-5 flex-wrap">
+      <div class="col-4 contacts">
+        {% for social_icon in social_icons %}
+        <div class="contacts-inner m-2 mt-3">
+          <h4 class="contact-name">{{social_icon.contact_title}}</h4>
+          <h6 class="contact-info">
+            <i class="{{social_icon.contact_icon}} "></i>
+            {{social_icon.contact_info}}
+          </h6>
+        </div>
+        {% endfor %}
+        <div class="social-icons m-2 mb-3">
+          <h4 class="contact-name">Social icons</h4>
+          {% for social_icon in social_icons %}
+          <a href="{{social_icon.social_link}}">
+            <i class="{{social_icon.social_icon}}"> </i
+          ></a>
+
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-8 form">
+        <h5 class="mx-3"><b>FEEL FREE TO DROP ME A LINE</b></h5>
+        <p class="mx-3">
+          If you have any suggestion, project or even you want to say Hello..
+          please fill out the form below and I will reply you shortly.
+        </p>
+
+        <form id="form" class="d-flex flex-column mx-3">
+          <div class="d-flex align-items-stretch">
+            <i class="fas fa-user"></i>
+            <input
+              type="text"
+              class="user my-2"
+              placeholder="Your Name"
+              name="user_name"
+            />
+          </div>
+          <div class="d-flex align-items-stretch">
+            <i class="fas fa-envelope"></i>
+            <input
+              type="email"
+              class="user my-2"
+              placeholder="Your Email"
+              name="user_email"
+            />
+          </div>
+          <div class="d-flex align-items-stretch">
+            <i class="fas fa-comments"></i>
+            <textarea
+              name="user_comment"
+              id=""
+              cols="30"
+              rows="5"
+              class="user my-2"
+              placeholder="Your comment"
+            ></textarea>
+          </div>
+          <button type="submit" class="sentMessage">
+            Send message
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
