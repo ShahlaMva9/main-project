@@ -14,7 +14,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        {% if url_for(request.endpoint) == '/admin/dashboard' %}
+        {% if '/admin/dashboard' in request.path %}
         <span class="navbar-brand">Admin panel</span>
         {% else %}
         <a class="navbar-brand" href="/admin/dashboard">Admin panel</a>
