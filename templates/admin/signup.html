@@ -6,7 +6,7 @@ block content %}
   <form class="w-50 ml-4 mt-4" method="POST" action="/admin/signup">
     {{form.hidden_tag()}} {{ wtf.form_field(form.username) }}
     {{wtf.form_field(form.email)}} {{wtf.form_field(form.password)}}
-    <input type="submit" class="btn btn-warning my-2" value="Login" />
+    <input type="submit" class="btn btn-success my-2" value="Login" />
   </form>
 </div>
 

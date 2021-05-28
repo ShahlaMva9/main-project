@@ -1,33 +1,54 @@
 {% extends "admin/dashboard.html" %} {% block content %}
 <div class="container">
-  <h1 class="adminpage ml-4 mt-4">Add Education</h1>
-  <table class="table table-hover mt-4 ml-4">
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">User name</th>
-        <th scope="col">User email</th>
-        <th scope="col">User comment</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for message in messages %}
-      <tr>
-        <th scope="row">{{message.id}}</th>
-        <td>{{message.user_name}}</td>
-        <td>{{message.user_email}}</td>
-        <td>{{message.user_comment}}</td>
-
-        <td>
-          <a href="/deletemessage/{{message.id}}" class="btn btn-outline-danger"
+  {% if messages %}
+  <h1 class="adminpage ml-4 mt-4">Messages</h1>
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    {% for message in messages %}
+    <div class="d-flex text-muted pt-3">
+      <p
+        class="
+          w-100
+          pb-3
+          d-flex
+          justify-content-between
+          mb-0
+          small
+          lh-sm
+          border-bottom
+        "
+      >
+        <span class="w-100 d-flex flex-column align-items-baseline">
+          <strong class="d-block text-gray-dark fs-4"
+            >{{message.user_name}}</strong
+          >
+          <span class="skill d-flex mt-2 text-primary badge bg-info text-dark">
+            {{message.user_email}}
+          </span>
+          <span class="col-12 skill d-flex mt-2 fs-5">
+            {{message.user_comment}}
+          </span>
+        </span>
+        <span>
+          <a href="/deletemessage/{{message.id}}" class="btn btn-sm btn-danger"
             >Delete</a
           >
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        </span>
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <div class="d-flex mt-4">
+    <div class="card w-100 text-center pt-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          <p>No messages list, yet!</p>
+        </h5>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 </div>
 
 {% endblock %}

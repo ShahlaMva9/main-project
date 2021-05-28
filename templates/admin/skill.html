@@ -21,47 +21,48 @@
       <option value="5">Five</option>
     </select>
 
-    <input type="submit" class="btn btn-warning my-2" value="Add" />
+    <input type="submit" class="btn btn-success my-2" value="Add" />
   </form>
 
   <h1 class="adminpage ml-4 mt-3">Skill page</h1>
-  <table class="table table-hover mt-4 ml-4">
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Skill name</th>
-        <th scope="col">Skill rate1</th>
-        <th scope="col">Skill rate2</th>
-        <th scope="col">Skill rate3</th>
-        <th scope="col">Skill rate4</th>
-        <th scope="col">Skill rate5</th>
-
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for skill in skills %}
-      <tr>
-        <th scope="row">{{skill.id}}</th>
-        <td>{{skill.skill_name}}</td>
-        <td>{{skill.skill_rate1}}</td>
-        <td>{{skill.skill_rate2}}</td>
-        <td>{{skill.skill_rate3}}</td>
-        <td>{{skill.skill_rate4}}</td>
-        <td>{{skill.skill_rate5}}</td>
-
-        <td>
-          <a href="/deleteskill/{{skill.id}}" class="btn btn-outline-danger"
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+    {% for skill in skills %}
+    <div class="d-flex text-muted pt-3">
+      <p
+        class="
+          w-100
+          pb-3
+          d-flex
+          justify-content-between
+          mb-0
+          small
+          lh-sm
+          border-bottom
+        "
+      >
+        <span>
+          <strong class="d-block text-gray-dark">{{skill.skill_name}}</strong>
+          <span class="col-6 skill d-flex mt-2">
+            <i class="{{skill.skill_rate1}}"></i>
+            <i class="{{skill.skill_rate2}}"></i>
+            <i class="{{skill.skill_rate3}}"></i>
+            <i class="{{skill.skill_rate4}}"></i>
+            <i class="{{skill.skill_rate5}}"></i>
+          </span>
+        </span>
+        <span>
+          <a href="/deleteskill/{{skill.id}}" class="btn btn-sm btn-danger"
             >Delete</a
           >
-          <a href="/updateskill/{{skill.id}}" class="btn btn-outline-secondary"
+          <a href="/updateskill/{{skill.id}}" class="btn btn-sm btn-secondary"
             >Edit</a
           >
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        </span>
+      </p>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

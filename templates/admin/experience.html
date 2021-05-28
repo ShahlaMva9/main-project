@@ -26,43 +26,62 @@
       class="form-control my-2"
       placeholder="Job content"
     />
-    <input type="submit" class="btn btn-warning my-2" value="Add" />
+    <input type="submit" class="btn btn-success my-2" value="Add" />
   </form>
 
   <h1 class="adminpage ml-4 mt-3">Experience page</h1>
-  <table class="table table-hover mt-4 ml-4">
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Job title</th>
-        <th scope="col">Company</th>
-        <th scope="col">Job date</th>
-        <th scope="col">Job content</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for experience in experiences %}
-      <tr>
-        <th scope="row">{{experience.id}}</th>
-        <td>{{experience.job_title}}</td>
-        <td>{{experience.company}}</td>
-        <td>{{experience.job_date}}</td>
-        <td>{{experience.job_content}}</td>
-        <td>
-          <a href="/deleteexp/{{experience.id}}" class="btn btn-outline-danger"
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+    {% for experience in experiences %}
+    <div class="d-flex text-muted pt-3">
+      <div
+        class="
+          w-100
+          pb-3
+          d-flex
+          justify-content-between
+          mb-0
+          small
+          lh-sm
+          border-bottom
+        "
+      >
+        <div>
+          <strong class="d-block text-gray-dark"
+            >{{experience.job_title}}</strong
+          >
+          <div class="d-flex mt-2">
+            <div class="d-flex flex-column align-items-baseline">
+              <table class="mb-1">
+                <tr>
+                  <td class="pe-4">Company</td>
+                  <td>{{experience.company}}</td>
+                </tr>
+                <tr>
+                  <td>Job date</td>
+                  <td>{{experience.job_date}}</td>
+                </tr>
+              </table>
+              <span> {{experience.job_content}} </span>
+            </div>
+          </div>
+        </div>
+        <span class="d-flex align-items-start">
+          <a
+            href="/deleteexp/{{experience.id}}"
+            class="btn btn-sm me-2 btn-danger"
             >Delete</a
           >
           <a
             href="/updateexp/{{experience.id}}"
-            class="btn btn-outline-secondary"
+            class="btn btn-sm btn-secondary"
             >Edit</a
           >
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        </span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
