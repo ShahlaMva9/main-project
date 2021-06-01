@@ -75,21 +75,27 @@ class Message(db.Model):
     user_email=db.Column(db.String(50))
     user_comment=db.Column(db.Text)
 
-tags = db.Table('tags',
-    db.Column('tag', db.Integer, db.ForeignKey('tag.id'), primary_key=True),
-    db.Column('myblog', db.Integer, db.ForeignKey('myblog.id'), primary_key=True)
+tags = db.Table(
+    "tags",
+    db.Column("tag_id", db.Integer, db.ForeignKey("tag.id")),
+    db.Column("blog_id", db.Integer, db.ForeignKey("blog.id")),
 )
-
-class Myblog(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    title=db.Column(db.String(255))
+    
+class Blog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255))
     img=db.Column(db.String(255))
     content=db.Column(db.Text)
-    link=db.Column(db.String(255))
-    comment=db.Column(db.Text)
-    tags = db.relationship('Tag', secondary='tags', lazy='subquery',
-        backref=db.backref('myblogs', lazy=True))
+    release_date = db.Column(db.DateTime)
+    # Fikrin burda olsun, relation burda verilir!
+    tags = db.relationship("Tag", secondary=tags,
+                             backref="blogs", lazy="select") 
+
+   
+
+ 
 
 class Tag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
     

@@ -20,24 +20,12 @@
       class="form-control my-2"
       placeholder="Post content"
     />
-    <input
-      type="text"
-      name="link"
-      class="form-control my-2"
-      placeholder="Permalink"
-    />
-    <input
-      type="text"
-      name="comment"
-      class="form-control my-2"
-      placeholder="Post comments"
-    />
-    <input
-      type="text"
-      name="tags"
-      class="form-control my-2"
-      placeholder="Tags"
-    />
+    <input type="date" name="release_date" />
+    <select name="selected-tag" id="">
+      {% for tag in tags %}
+      <option value="{{tag.id}}">{{tag.name}}</option>
+      {% endfor %}
+    </select>
 
     <input type="submit" class="btn btn-success my-2" value="Add" />
   </form>
@@ -50,9 +38,7 @@
         <th scope="col">Post title</th>
         <th scope="col">Post img</th>
         <th scope="col">Post content</th>
-        <th scope="col">Permalink</th>
         <th scope="col">Tags</th>
-        <th scope="col">Comments</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -63,8 +49,6 @@
         <th scope="row">{{myblog.title}}</th>
         <th scope="row">{{myblog.img}}</th>
         <th scope="row">{{myblog.content}}</th>
-        <th scope="row">{{myblog.link}}</th>
-        <th scope="row">{{myblog.comment}}</th>
         <th scope="row">{{myblog.tags}}</th>
 
         <td>

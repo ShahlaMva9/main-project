@@ -8,22 +8,22 @@ from flask_login import login_required
 @login_required
 def admin_myblog_index():
     from run import db
-    from models import Myblog,Tag,tags 
-    myblogs=Myblog.query.all()
+    from models import Tag,Blog
+    blogs=Blog.query.all()
+    tags=Tag.query.all()
     if request.method == 'POST':
         file=request.files['img']
         filename=file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-        myblog = Myblog(
+        blog=Blog(
              title=request.form['title'],
              img=filename,
              content=request.form['content'],
-             link=request.form['content'],
-             tags=request.form['tags'],
-             comment=request.form['comment']
+             tags=request.form['selected-tag']
          )
-        db.session.add(myblog)
+        db.session.add(myexperience)
         db.session.commit()
-        return redirect('/admin/myblog')
-    return render_template('admin/myblog.html',myblogs=myblogs)
+        return redirect('/admin/myexperience')
+
+    return render_template('admin/myblog.html',tags=tags)
    

@@ -40,6 +40,9 @@ from controllers.admin.socialprof import *
 from controllers.admin.home import *
 from controllers.admin.form import *
 from controllers.admin.myblog import *
+from controllers.admin.tag import *
+
+
 
 
 @login_manager.user_loader
