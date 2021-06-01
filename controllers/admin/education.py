@@ -1,6 +1,7 @@
 from run import app 
 from flask import render_template,redirect,request
 from flask_login import login_required
+
 @app.route('/admin/education',methods=['GET','POST'])
 @login_required
 def admin_education_index():
@@ -18,6 +19,7 @@ def admin_education_index():
          db.session.commit()
          return redirect('/admin/education')
     return render_template('admin/education.html',educations=educations)
+    
 @app.route('/deleteedu/<int:id>')
 def deleteedu(id):
     from run import db

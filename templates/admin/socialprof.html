@@ -50,7 +50,7 @@
   </form>
 
   <h1 class="adminpage ml-4 mt-3">Social profile</h1>
-  <table class="table table-hover mt-4 ml-4">
+  <table class="table table-hover mt-4 ml-4 d-none">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -86,5 +86,60 @@
       {% endfor %}
     </tbody>
   </table>
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    {% for social_icon in social_icons %}
+    <div class="d-flex text-muted pt-3">
+      <div
+        class="
+          w-100
+          pb-3
+          d-flex
+          justify-content-between
+          mb-0
+          small
+          lh-sm
+          border-bottom
+        "
+      >
+        <div>
+          <div class="d-flex mt-2">
+            <div class="d-flex flex-column align-items-baseline">
+              <table class="mb-1">
+                <tr>
+                  <td class="pe-4">Contact</td>
+                  <td>
+                    <i>{{social_icon.contact_icon}}</i>
+                    {{social_icon.contact_title}}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Social link</td>
+                  <td>{{social_icon.social_icon}}</td>
+                </tr>
+                <tr>
+                  <td>Link</td>
+                  <td>{{social_icon.social_link}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <span class="d-flex align-items-start">
+          <a
+            href="/deletesocialicon/{{social_icon.id}}"
+            class="btn btn-sm me-2 btn-danger"
+            >Delete</a
+          >
+          <a
+            href="/updatesocialicon/{{social_icon.id}}"
+            class="btn btn-sm btn-secondary"
+            >Edit</a
+          >
+        </span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

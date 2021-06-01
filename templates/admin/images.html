@@ -7,38 +7,51 @@
     enctype="multipart/form-data"
     class="w-50 ml-4 mt-4"
   >
-    <input type="file" name="image" class="form-control my-2 p-2" />
+    <input type="file" name="image" class="form-control my-2 p-2" required />
 
     <input type="submit" class="btn btn-success my-2" value="Add" />
   </form>
   <h1 class="adminpage ml-4 mt-3">Images page</h1>
-
-  <table class="table table-hover mt-4 ml-4">
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Image</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for image in images %}
-      <tr>
-        <th scope="row">{{image.id}}</th>
-        <th scope="row">{{image.image}}</th>
-
-        <td>
-          <a href="/deleteimg/{{image.id}}" class="btn btn-outline-danger"
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    {% for image in images %}
+    <div class="d-flex text-muted pt-3">
+      <div
+        class="
+          w-100
+          pb-3
+          d-flex
+          justify-content-between
+          mb-0
+          small
+          lh-sm
+          border-bottom
+        "
+      >
+        <div class="d-flex">
+          <strong class="d-block text-gray-dark me-2">{{image.id}}</strong>
+          <div class="d-flex">
+            <div class="d-flex flex-column align-items-baseline me-3">
+              {{image.image}}
+            </div>
+            <img
+              class="image-in-list"
+              src="/static/app/assets/{{image.image}}"
+              alt=""
+            />
+          </div>
+        </div>
+        <span class="d-flex align-items-start">
+          <a href="/deleteimg/{{image.id}}" class="btn btn-sm me-2 btn-danger"
             >Delete</a
           >
-          <a href="/updateimg/{{image.id}}" class="btn btn-outline-secondary"
+          <a href="/updateimg/{{image.id}}" class="btn btn-sm btn-secondary"
             >Edit</a
           >
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        </span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

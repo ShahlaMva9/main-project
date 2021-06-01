@@ -29,7 +29,7 @@
     <input type="submit" class="btn btn-success my-2" value="Add" />
   </form>
   <h1 class="adminpage ml-4 mt-3">Education page</h1>
-  <table class="table table-hover mt-4 ml-4">
+  <table class="table table-hover mt-4 ml-4 d-none">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -62,6 +62,57 @@
       {% endfor %}
     </tbody>
   </table>
+
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+    {% for education in educations %}
+    <div class="d-flex text-muted pt-3">
+      <div
+        class="
+          w-100
+          pb-3
+          d-flex
+          justify-content-between
+          mb-0
+          small
+          lh-sm
+          border-bottom
+        "
+      >
+        <div>
+          <strong class="d-block text-gray-dark"
+            >{{education.education_title}}</strong
+          >
+          <div class="d-flex mt-2">
+            <div class="d-flex flex-column align-items-baseline">
+              <table class="mb-1">
+                <tr>
+                  <td class="pe-4">university</td>
+                  <td>{{education.university_name}}</td>
+                </tr>
+                <tr>
+                  <td>Date</td>
+                  <td>{{education.education_date}}</td>
+                </tr>
+              </table>
+              <span> {{education.education_content}} </span>
+            </div>
+          </div>
+        </div>
+        <span class="d-flex align-items-start">
+          <a
+            href="/deleteedu/{{education.id}}"
+            class="btn btn-sm me-2 btn-danger"
+            >Delete</a
+          >
+          <a href="/updateedu/{{education.id}}" class="btn btn-sm btn-secondary"
+            >Edit</a
+          >
+        </span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

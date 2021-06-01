@@ -37,3 +37,9 @@ body {
 .table a {
   font-size: 1em;
 }
+
+.image-in-list {
+  width: 80%;
+  max-width: 100px;
+  border-radius: 8px;
+}
