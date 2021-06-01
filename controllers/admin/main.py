@@ -1,6 +1,6 @@
 # run.py icersindeki app
 from run import app 
-from flask import abort,render_template,redirect,request,url_for, session, g
+from flask import abort,render_template,redirect,request,url_for, session, g, jsonify
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import login_required,login_user, current_user, logout_user
         
@@ -23,16 +23,19 @@ def login_index():
     from models import LoginForm,User
     form =LoginForm()
     if form.validate_on_submit():
-        users = User.query.all()
-        user = list(filter(lambda users: users.username == form.username.data, users))[0]
+        # users = db.session.query(User).filter(User.username == form.username.data)
+        user = User.query.filter_by(username=form.username.data).first()
         if user:
-                if check_password_hash(user.password,form.password.data):
-                    session['user_id'] = user.id
-                    g.user = user
-                    login_user(user)
-                    return redirect(url_for('dashboard'))
-                else:
-                    return 'Invalid username or Password'
+            if check_password_hash(user.password,form.password.data):
+                session['user_id'] = user.id
+                g.user = user
+                login_user(user)
+                return redirect(url_for('dashboard'))
+            else:
+                return 'Invalid username or Password'
+        else:
+            return 'No user(s) find'
+        
     return render_template ("admin/login.html",form=form)
 
        
@@ -43,16 +46,19 @@ def signup_index():
     from models import RegisterForm,User
     form=RegisterForm()
     if form.validate_on_submit():
-        hashed_password=generate_password_hash(form.password.data,method='sha256')
-        new_user=User(
-            username=form.username.data,
-            email=form.email.data,
-            password=hashed_password
-        )
-        db.session.add(new_user)
-        db.session.commit()
-        return '<h1>New user has ben created</h1>'
-        #return '<h1>'+ form.username.data + ' ' + form.email.data + ' ' + form.password.data +'</h1>'
+        try:
+            hashed_password=generate_password_hash(form.password.data,method='sha256')
+            new_user = User(
+                username=form.username.data,
+                email=form.email.data,
+                password=hashed_password
+            )
+            db.session.add(new_user)
+            db.session.commit()
+            return '<h1>New user has ben created</h1>'
+            #return '<h1>'+ form.username.data + ' ' + form.email.data + ' ' + form.password.data +'</h1>'
+        except Exception as exp:
+            print("dsdasdasd", exp)
     return render_template ("admin/signup.html",form=form)
 
 @app.route('/admin/dashboard')
